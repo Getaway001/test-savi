@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hi, {{ current_user.username }}!</h1>
+	    <p>
+		    {% for doc in docs %}
+		    <a href="/docs/{{doc.name}}.pdf">{{ doc.name }}</a></br>
+		    {% endfor %}
+		</p>
+{% endblock %}
