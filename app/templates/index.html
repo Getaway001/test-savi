@@ -1,10 +1,92 @@
-{% extends "base.html" %}
+<!-- Index Template-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-{% block content %}
-    <h1>Hi, {{ current_user.username }}!</h1>
-	    <p>
-		    {% for doc in docs %}
-		    <a href="/docs/{{doc.name}}.pdf">{{ doc.name }}</a></br>
-		    {% endfor %}
-		</p>
-{% endblock %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>SaviApp-Index</title>
+<link href='http://fonts.googleapis.com/css?family=Archivo+Narrow:400,700|Open+Sans:400,300' rel='stylesheet' type='text/css' />
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/indexStyle.css') }}" >
+</head>
+
+
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header" class="container">
+			<div id="logo">
+				<h1><a href="#">Bonjour {{ current_user.username }}</a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li class="current_page_item"><a href="#">Homepage</a></li>
+					<li><a href="#">Page2</a></li>
+					<li><a href="#">Page3</a></li>
+					<li><a href="{{ url_for('logout') }}">Log Out</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="banner">
+			<div class="content"><img src="../static/images/im1.jpg" width="1000" height="300" alt="" /></div>
+		</div>
+	</div>
+	<!-- end #header -->
+	
+	<div id="page">
+		<div id="content">
+			{% for doc in docs %}
+				<div class="post">
+					<h2 class="title">Description {{doc.name}}</h2>
+					<p class="meta"><span class="date">April 04, 2013</span><span class="posted">Posted by <a href="#">Someone</a></span></p>
+					<div style="clear: both;">&nbsp;</div>
+					<div class="entry">
+						<p>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum vel, tempor at, varius non, purus. Mauris vitae nisl nec metus placerat consectetuer. Donec ipsum. Proin imperdiet est. Phasellus <a href="#">dapibus semper urna</a>. Pellentesque ornare, orci in consectetuer hendrerit, urna elit eleifend nunc, ut consectetuer nisl felis ac diam. Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem.  Mauris quam enim, molestie in,  ut, lobortis a, est.</p>
+						<p class="links"><a href="/docs/{{doc.name}}.pdf" class="more">View document</a></p>
+					</div>
+				</div>
+
+				<div style="clear: both;">&nbsp;</div>
+			{%endfor%}	
+		</div>
+		<!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<h2>Categories</h2>
+					<ul>
+						{% for doc in docs %}
+   						<li> <a href="/docs/{{doc.name}}.pdf">{{ doc.name }}</a></li>
+   						{% endfor %}
+					</ul>
+				</li>
+				<li>
+					<h2>Courses</h2>
+					<ul>
+						{% for doc in docs %}
+   						<li> <a href="/docs/{{doc.name}}.pdf">{{ doc.name }}</a></li>
+   						{% endfor %}
+					</ul>
+				</li>
+				<li>
+					<h2>Archives</h2>
+					<ul>
+						{% for doc in docs %}
+   						<li> <a href="/docs/{{doc.name}}.pdf">{{ doc.name }}</a></li>
+   						{% endfor %}
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page --> 
+</div>
+<div id="footer">
+	<p>&copy; Untitled. All rights reserved.</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>

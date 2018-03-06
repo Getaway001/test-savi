@@ -56,17 +56,9 @@ def register():
     return render_template('register.html', title='Register', form=form)
 
 
-'''@app.route('/annuaire/<int:year>/<publi_name>.pdf')
-def publication(year, publi_name):
-    directory = os.path.join('static', 'data', 'yearbooks', str(year))
-    fname = "{}.pdf".format(publi_name)
-    return send_from_directory(directory, fname)
-'''
-
 @app.route('/docs/<publication_name>.pdf')
 @login_required
 def publication(publication_name):
     directory = os.path.join('static', 'data', 'docs')
     fname = "{}.pdf".format(publication_name)
     return send_from_directory(directory, fname)
-#UPLOAD_FOLDER = 'Users/ibrahimadiop/Desktop/microblog-0.5/pdfs/'

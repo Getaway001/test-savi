@@ -1,0 +1,68 @@
+html, body {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  background: white; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+form {
+  background: white;
+  width: 50%;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+  font-family: lato;
+  position: relative;
+  color: #333;
+  border-radius: 10px;
+}
+form header {
+  background: #ff9c38;
+  padding: 30px 20px;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  border-radius: 10px 10px 0 0;
+}
+form label {
+  margin-left: 20px;
+  display: inline-block;
+  margin-top: 30px;
+  margin-bottom: 5px;
+  position: relative;
+}
+
+form .input {
+  margin-left: 190px;
+  padding: 5px 20px;
+}
+
+form label span {
+  color: #FF3838;
+  font-size: 2em;
+  position: absolute;
+  left: 2.3em;
+  top: -10px;
+}
+
+form .help {
+  margin-left: 20px;
+  font-size: 0.8em;
+  color: #777;
+}
+
+form .submit {
+  margin-left: 50px;
+  
+}
+
+
+.message_error{
+  color: #FF3838;
+}

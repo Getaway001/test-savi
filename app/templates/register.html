@@ -1,37 +1,49 @@
 {% extends "base.html" %}
 
-{% block content %}
-    <h1>Register</h1>
-    <form action="" method="post">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.username.label }}<br>
-            {{ form.username(size=32) }}<br>
-            {% for error in form.username.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.email.label }}<br>
-            {{ form.email(size=64) }}<br>
-            {% for error in form.email.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.password.label }}<br>
-            {{ form.password(size=32) }}<br>
-            {% for error in form.password.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.password2.label }}<br>
-            {{ form.password2(size=32) }}<br>
-            {% for error in form.password2.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>{{ form.submit() }}</p>
-    </form>
+{% block message %}
 {% endblock %}
+
+{% block content %}  
+  <form action="" method="post">
+    {{ form.hidden_tag() }}
+    <header>Register</header>
+    <label>Username : &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+    <label> {{ form.username(size=32) }} </label>
+    <div class="help">
+      {% for error in form.username.errors %}
+        [{{ error }}]
+      {% endfor %}
+    </div>
+
+    <label>Email : &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+    <label> {{ form.email(size=32) }} </label>
+    <div class="help">
+      {% for error in form.email.errors %}
+        [{{ error }}]
+      {% endfor %}
+    </div>
+
+    <label>Password : &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+    <label> {{ form.password(size=32) }} </label>
+    <div class="help">
+      {% for error in form.password.errors %}
+        [{{ error }}]
+      {% endfor %}
+    </div>
+
+    <label>Confirm password : </label>
+    <label> {{ form.password2(size=32) }} </label>
+    <div class="help">
+      {% for error in form.password2.errors %}
+        [{{ error }}]
+      {% endfor %}
+    </div>
+    
+   <div class="input" > {{ form.submit() }} </div>
+
+    <div> <label>Already registered? <a href="{{ url_for('login') }}">Click to Sign In!</a></div> </label>
+  </form>
+{% endblock %}
+
+
+
